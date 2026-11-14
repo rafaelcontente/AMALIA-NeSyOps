@@ -2,6 +2,9 @@
 from typing import Dict, Any, List
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
+import hmac
+import hashlib
+import time as time_module
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
@@ -36,14 +39,29 @@ class WebhookManager:
             self.subscriptions[subscription_id] = sub.model_copy(update={"active": False})
 
     def emit_event(self, event: WebhookEvent):
-        """Entrega simulada: regista o envio por subscricao activa do mesmo tenant."""
+        """Entrega simulada com assinatura HMAC-SHA256 para integridade e replay protection."""
         for sub in self.subscriptions.values():
             if sub.active and sub.entity_id == event.entity_id and event.event_type in sub.event_types:
+                # Gerar assinatura HMAC
+                timestamp = str(int(time_module.time()))
+                payload_str = str(event.model_dump())
+                message = f"{timestamp}.{payload_str}"
+                
+                signature = ""
+                if sub.secret:
+                    signature = hmac.new(
+                        sub.secret.encode(),
+                        message.encode(),
+                        hashlib.sha256
+                    ).hexdigest()
+                
                 self.events_sent.append({
                     "subscription_id": sub.subscription_id,
                     "url": sub.url,
                     "event": event.model_dump(),
                     "sent_at": utc_now(),
+                    "timestamp": timestamp,
+                    "signature": signature,
                 })
 
     def get_events_for_subscription(self, subscription_id: str) -> List[Dict[str, Any]]:

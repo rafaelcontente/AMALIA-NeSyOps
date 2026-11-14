@@ -1,5 +1,6 @@
 """API REST para integração com sistemas externos."""
 from typing import Dict, Any, Optional
+import time
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 from audit.ledger import AuditLedger
@@ -48,7 +49,33 @@ class APIGateway:
         self.requests: Dict[str, Dict[str, Any]] = {}
         self.results: Dict[str, DecisionResult] = {}
         self.kill_switch_active = False
+        # Rate limiting: requests per second per entity
+        self.rate_limits: Dict[str, List[float]] = {}  # entity_id -> [timestamps]
+        self.max_requests_per_second = 10
     
+
+    def _check_rate_limit(self, entity_id: str) -> bool:
+        """Verifica se entity_id excedeu o rate limit."""
+        now = time.time()
+        window = 1.0  # 1 segundo
+        
+        # Limpar timestamps antigos
+        if entity_id not in self.rate_limits:
+            self.rate_limits[entity_id] = []
+        
+        self.rate_limits[entity_id] = [
+            t for t in self.rate_limits[entity_id]
+            if now - t < window
+        ]
+        
+        # Verificar limite
+        if len(self.rate_limits[entity_id]) >= self.max_requests_per_second:
+            return False
+        
+        # Registar request
+        self.rate_limits[entity_id].append(now)
+        return True
+
     def submit_decision(self, request: DecisionRequest) -> DecisionResponse:
         """
         Submete um pedido de decisão.
@@ -59,6 +86,17 @@ class APIGateway:
         Returns:
             Response com trace_id para polling
         """
+        # Verificar rate limit
+        if not self._check_rate_limit(request.entity_id):
+            trace_id = f"T-{request.request_id}"
+            self.requests[trace_id] = {
+                "request": request,
+                "status": "failed",
+                "error": "Rate limit exceeded",
+                "created_at": utc_now()
+            }
+            return DecisionResponse(trace_id=trace_id, status="failed")
+        
         # Verificar kill switch
         if self.kill_switch_active:
             trace_id = f"T-{request.request_id}"
