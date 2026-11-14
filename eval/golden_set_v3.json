@@ -1,0 +1,2742 @@
+[
+  {
+    "id": "GS3-0001",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #1"
+  },
+  {
+    "id": "GS3-0002",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #2"
+  },
+  {
+    "id": "GS3-0003",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #3"
+  },
+  {
+    "id": "GS3-0004",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 100,
+      "zona": "urbana"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #4"
+  },
+  {
+    "id": "GS3-0005",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 15,
+      "zona": "urbana"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #5"
+  },
+  {
+    "id": "GS3-0006",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #6"
+  },
+  {
+    "id": "GS3-0007",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 100,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #7"
+  },
+  {
+    "id": "GS3-0008",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #8"
+  },
+  {
+    "id": "GS3-0009",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 100,
+      "zona": "rural"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #9"
+  },
+  {
+    "id": "GS3-0010",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #10"
+  },
+  {
+    "id": "GS3-0011",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 15,
+      "zona": "urbana"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #11"
+  },
+  {
+    "id": "GS3-0012",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 15,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #12"
+  },
+  {
+    "id": "GS3-0013",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #13"
+  },
+  {
+    "id": "GS3-0014",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 15,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #14"
+  },
+  {
+    "id": "GS3-0015",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 50,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #15"
+  },
+  {
+    "id": "GS3-0016",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #16"
+  },
+  {
+    "id": "GS3-0017",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #17"
+  },
+  {
+    "id": "GS3-0018",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #18"
+  },
+  {
+    "id": "GS3-0019",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #19"
+  },
+  {
+    "id": "GS3-0020",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 100,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #20"
+  },
+  {
+    "id": "GS3-0021",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "rural"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #21"
+  },
+  {
+    "id": "GS3-0022",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #22"
+  },
+  {
+    "id": "GS3-0023",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #23"
+  },
+  {
+    "id": "GS3-0024",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 20,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #24"
+  },
+  {
+    "id": "GS3-0025",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 100,
+      "zona": "rural"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #25"
+  },
+  {
+    "id": "GS3-0026",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #26"
+  },
+  {
+    "id": "GS3-0027",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #27"
+  },
+  {
+    "id": "GS3-0028",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #28"
+  },
+  {
+    "id": "GS3-0029",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #29"
+  },
+  {
+    "id": "GS3-0030",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 100,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #30"
+  },
+  {
+    "id": "GS3-0031",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 20,
+      "zona": "rural"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #31"
+  },
+  {
+    "id": "GS3-0032",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 20,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #32"
+  },
+  {
+    "id": "GS3-0033",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 100,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #33"
+  },
+  {
+    "id": "GS3-0034",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #34"
+  },
+  {
+    "id": "GS3-0035",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 100,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #35"
+  },
+  {
+    "id": "GS3-0036",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 15,
+      "zona": "urbana"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #36"
+  },
+  {
+    "id": "GS3-0037",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 100,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #37"
+  },
+  {
+    "id": "GS3-0038",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 100,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #38"
+  },
+  {
+    "id": "GS3-0039",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 50,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #39"
+  },
+  {
+    "id": "GS3-0040",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #40"
+  },
+  {
+    "id": "GS3-0041",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 50,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #41"
+  },
+  {
+    "id": "GS3-0042",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 100,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #42"
+  },
+  {
+    "id": "GS3-0043",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 65,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #43"
+  },
+  {
+    "id": "GS3-0044",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 20,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #44"
+  },
+  {
+    "id": "GS3-0045",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 50,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #45"
+  },
+  {
+    "id": "GS3-0046",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 20,
+      "zona": "rural"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #46"
+  },
+  {
+    "id": "GS3-0047",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "protegida"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN",
+      "R-ZONING-OK"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #47"
+  },
+  {
+    "id": "GS3-0048",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 25,
+      "area_m2": 100,
+      "zona": "urbana"
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de licenciamento comercial #48"
+  },
+  {
+    "id": "GS3-0049",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 17,
+      "area_m2": 50,
+      "zona": "rural"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AGE-18"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #49"
+  },
+  {
+    "id": "GS3-0050",
+    "category": "licenciamento_comercial",
+    "input_data": {
+      "idade": 18,
+      "area_m2": 15,
+      "zona": "urbana"
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-AREA-MIN"
+    ],
+    "description": "Caso semi-real de licenciamento comercial #50"
+  },
+  {
+    "id": "GS3-0051",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #51"
+  },
+  {
+    "id": "GS3-0052",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #52"
+  },
+  {
+    "id": "GS3-0053",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #53"
+  },
+  {
+    "id": "GS3-0054",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 24,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #54"
+  },
+  {
+    "id": "GS3-0055",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #55"
+  },
+  {
+    "id": "GS3-0056",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #56"
+  },
+  {
+    "id": "GS3-0057",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 24,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #57"
+  },
+  {
+    "id": "GS3-0058",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #58"
+  },
+  {
+    "id": "GS3-0059",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 12,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #59"
+  },
+  {
+    "id": "GS3-0060",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #60"
+  },
+  {
+    "id": "GS3-0061",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #61"
+  },
+  {
+    "id": "GS3-0062",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #62"
+  },
+  {
+    "id": "GS3-0063",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 24,
+      "dependentes": 0
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #63"
+  },
+  {
+    "id": "GS3-0064",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #64"
+  },
+  {
+    "id": "GS3-0065",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #65"
+  },
+  {
+    "id": "GS3-0066",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 12,
+      "dependentes": 0
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #66"
+  },
+  {
+    "id": "GS3-0067",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 12,
+      "dependentes": 3
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #67"
+  },
+  {
+    "id": "GS3-0068",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #68"
+  },
+  {
+    "id": "GS3-0069",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #69"
+  },
+  {
+    "id": "GS3-0070",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #70"
+  },
+  {
+    "id": "GS3-0071",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #71"
+  },
+  {
+    "id": "GS3-0072",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 24,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #72"
+  },
+  {
+    "id": "GS3-0073",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 12,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #73"
+  },
+  {
+    "id": "GS3-0074",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 24,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #74"
+  },
+  {
+    "id": "GS3-0075",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #75"
+  },
+  {
+    "id": "GS3-0076",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #76"
+  },
+  {
+    "id": "GS3-0077",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #77"
+  },
+  {
+    "id": "GS3-0078",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #78"
+  },
+  {
+    "id": "GS3-0079",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 12,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #79"
+  },
+  {
+    "id": "GS3-0080",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #80"
+  },
+  {
+    "id": "GS3-0081",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #81"
+  },
+  {
+    "id": "GS3-0082",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #82"
+  },
+  {
+    "id": "GS3-0083",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 12,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #83"
+  },
+  {
+    "id": "GS3-0084",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #84"
+  },
+  {
+    "id": "GS3-0085",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #85"
+  },
+  {
+    "id": "GS3-0086",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 12,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #86"
+  },
+  {
+    "id": "GS3-0087",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 12,
+      "dependentes": 1
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #87"
+  },
+  {
+    "id": "GS3-0088",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #88"
+  },
+  {
+    "id": "GS3-0089",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #89"
+  },
+  {
+    "id": "GS3-0090",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 24,
+      "dependentes": 1
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #90"
+  },
+  {
+    "id": "GS3-0091",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #91"
+  },
+  {
+    "id": "GS3-0092",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #92"
+  },
+  {
+    "id": "GS3-0093",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #93"
+  },
+  {
+    "id": "GS3-0094",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 6,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #94"
+  },
+  {
+    "id": "GS3-0095",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 24,
+      "dependentes": 0
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #95"
+  },
+  {
+    "id": "GS3-0096",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 6,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD",
+      "R-RESIDENCE-1Y"
+    ],
+    "description": "Caso semi-real de subsidios sociais #96"
+  },
+  {
+    "id": "GS3-0097",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 800,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #97"
+  },
+  {
+    "id": "GS3-0098",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 500,
+      "meses_residencia": 24,
+      "dependentes": 0
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de subsidios sociais #98"
+  },
+  {
+    "id": "GS3-0099",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 2000,
+      "meses_residencia": 24,
+      "dependentes": 3
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #99"
+  },
+  {
+    "id": "GS3-0100",
+    "category": "subsidios_sociais",
+    "input_data": {
+      "rendimento_mensal": 1200,
+      "meses_residencia": 12,
+      "dependentes": 0
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-INCOME-THRESHOLD"
+    ],
+    "description": "Caso semi-real de subsidios sociais #100"
+  },
+  {
+    "id": "GS3-0101",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #101"
+  },
+  {
+    "id": "GS3-0102",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 65,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #102"
+  },
+  {
+    "id": "GS3-0103",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #103"
+  },
+  {
+    "id": "GS3-0104",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #104"
+  },
+  {
+    "id": "GS3-0105",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #105"
+  },
+  {
+    "id": "GS3-0106",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #106"
+  },
+  {
+    "id": "GS3-0107",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #107"
+  },
+  {
+    "id": "GS3-0108",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #108"
+  },
+  {
+    "id": "GS3-0109",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #109"
+  },
+  {
+    "id": "GS3-0110",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL",
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #110"
+  },
+  {
+    "id": "GS3-0111",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #111"
+  },
+  {
+    "id": "GS3-0112",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #112"
+  },
+  {
+    "id": "GS3-0113",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #113"
+  },
+  {
+    "id": "GS3-0114",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #114"
+  },
+  {
+    "id": "GS3-0115",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #115"
+  },
+  {
+    "id": "GS3-0116",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #116"
+  },
+  {
+    "id": "GS3-0117",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #117"
+  },
+  {
+    "id": "GS3-0118",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #118"
+  },
+  {
+    "id": "GS3-0119",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 65,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #119"
+  },
+  {
+    "id": "GS3-0120",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #120"
+  },
+  {
+    "id": "GS3-0121",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #121"
+  },
+  {
+    "id": "GS3-0122",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #122"
+  },
+  {
+    "id": "GS3-0123",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #123"
+  },
+  {
+    "id": "GS3-0124",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #124"
+  },
+  {
+    "id": "GS3-0125",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #125"
+  },
+  {
+    "id": "GS3-0126",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #126"
+  },
+  {
+    "id": "GS3-0127",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #127"
+  },
+  {
+    "id": "GS3-0128",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #128"
+  },
+  {
+    "id": "GS3-0129",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #129"
+  },
+  {
+    "id": "GS3-0130",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #130"
+  },
+  {
+    "id": "GS3-0131",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #131"
+  },
+  {
+    "id": "GS3-0132",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #132"
+  },
+  {
+    "id": "GS3-0133",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #133"
+  },
+  {
+    "id": "GS3-0134",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #134"
+  },
+  {
+    "id": "GS3-0135",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #135"
+  },
+  {
+    "id": "GS3-0136",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 65,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #136"
+  },
+  {
+    "id": "GS3-0137",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #137"
+  },
+  {
+    "id": "GS3-0138",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #138"
+  },
+  {
+    "id": "GS3-0139",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #139"
+  },
+  {
+    "id": "GS3-0140",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #140"
+  },
+  {
+    "id": "GS3-0141",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": true
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #141"
+  },
+  {
+    "id": "GS3-0142",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": true
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de contraordenacoes ambientais #142"
+  },
+  {
+    "id": "GS3-0143",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 65,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #143"
+  },
+  {
+    "id": "GS3-0144",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 65,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #144"
+  },
+  {
+    "id": "GS3-0145",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #145"
+  },
+  {
+    "id": "GS3-0146",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "inerte",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #146"
+  },
+  {
+    "id": "GS3-0147",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #147"
+  },
+  {
+    "id": "GS3-0148",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #148"
+  },
+  {
+    "id": "GS3-0149",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "urbano",
+      "decibeis": 45,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #149"
+  },
+  {
+    "id": "GS3-0150",
+    "category": "contraordenacoes_ambientais",
+    "input_data": {
+      "tipo_residuo": "perigoso",
+      "decibeis": 85,
+      "licenca_valida": false
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-WASTE-DISPOSAL",
+      "R-NOISE-LIMIT",
+      "R-PERMIT-VALID"
+    ],
+    "description": "Caso semi-real de contraordenacoes ambientais #150"
+  },
+  {
+    "id": "GS3-0151",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #151"
+  },
+  {
+    "id": "GS3-0152",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #152"
+  },
+  {
+    "id": "GS3-0153",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #153"
+  },
+  {
+    "id": "GS3-0154",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #154"
+  },
+  {
+    "id": "GS3-0155",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #155"
+  },
+  {
+    "id": "GS3-0156",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #156"
+  },
+  {
+    "id": "GS3-0157",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #157"
+  },
+  {
+    "id": "GS3-0158",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #158"
+  },
+  {
+    "id": "GS3-0159",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #159"
+  },
+  {
+    "id": "GS3-0160",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #160"
+  },
+  {
+    "id": "GS3-0161",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #161"
+  },
+  {
+    "id": "GS3-0162",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #162"
+  },
+  {
+    "id": "GS3-0163",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #163"
+  },
+  {
+    "id": "GS3-0164",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #164"
+  },
+  {
+    "id": "GS3-0165",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #165"
+  },
+  {
+    "id": "GS3-0166",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #166"
+  },
+  {
+    "id": "GS3-0167",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #167"
+  },
+  {
+    "id": "GS3-0168",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #168"
+  },
+  {
+    "id": "GS3-0169",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #169"
+  },
+  {
+    "id": "GS3-0170",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #170"
+  },
+  {
+    "id": "GS3-0171",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-STAFF-VACCINATED",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #171"
+  },
+  {
+    "id": "GS3-0172",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-STAFF-VACCINATED",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #172"
+  },
+  {
+    "id": "GS3-0173",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #173"
+  },
+  {
+    "id": "GS3-0174",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #174"
+  },
+  {
+    "id": "GS3-0175",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #175"
+  },
+  {
+    "id": "GS3-0176",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #176"
+  },
+  {
+    "id": "GS3-0177",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #177"
+  },
+  {
+    "id": "GS3-0178",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #178"
+  },
+  {
+    "id": "GS3-0179",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #179"
+  },
+  {
+    "id": "GS3-0180",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #180"
+  },
+  {
+    "id": "GS3-0181",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #181"
+  },
+  {
+    "id": "GS3-0182",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #182"
+  },
+  {
+    "id": "GS3-0183",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #183"
+  },
+  {
+    "id": "GS3-0184",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #184"
+  },
+  {
+    "id": "GS3-0185",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #185"
+  },
+  {
+    "id": "GS3-0186",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #186"
+  },
+  {
+    "id": "GS3-0187",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #187"
+  },
+  {
+    "id": "GS3-0188",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #188"
+  },
+  {
+    "id": "GS3-0189",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #189"
+  },
+  {
+    "id": "GS3-0190",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #190"
+  },
+  {
+    "id": "GS3-0191",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #191"
+  },
+  {
+    "id": "GS3-0192",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #192"
+  },
+  {
+    "id": "GS3-0193",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #193"
+  },
+  {
+    "id": "GS3-0194",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #194"
+  },
+  {
+    "id": "GS3-0195",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #195"
+  },
+  {
+    "id": "GS3-0196",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 500
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT"
+    ],
+    "description": "Caso semi-real de saude publica #196"
+  },
+  {
+    "id": "GS3-0197",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 100
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-VENTILATION"
+    ],
+    "description": "Caso semi-real de saude publica #197"
+  },
+  {
+    "id": "GS3-0198",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 80,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #198"
+  },
+  {
+    "id": "GS3-0199",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": true,
+      "staff_vacinado_pct": 100,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "approved",
+    "expected_rules_violated": [],
+    "description": "Caso semi-real de saude publica #199"
+  },
+  {
+    "id": "GS3-0200",
+    "category": "saude_publica",
+    "input_data": {
+      "certificado_higiene": false,
+      "staff_vacinado_pct": 60,
+      "ventilacao_m3h": 300
+    },
+    "expected_decision": "rejected",
+    "expected_rules_violated": [
+      "R-HYGIENE-CERT",
+      "R-STAFF-VACCINATED"
+    ],
+    "description": "Caso semi-real de saude publica #200"
+  }
+]
