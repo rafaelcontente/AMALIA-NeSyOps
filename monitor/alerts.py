@@ -1,7 +1,7 @@
 """
 Sistema de alertas com thresholds e cooldown.
 """
-from typing import Dict, Any, List
+from typing import Any, Dict, List, Optional
 from datetime import datetime, timezone, timedelta
 
 def utc_now() -> datetime:

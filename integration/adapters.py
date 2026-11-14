@@ -1,5 +1,5 @@
 """Adaptadores para sistemas externos (dados abertos, legados, etc.)."""
-from typing import Dict, Any, Optional
+from typing import Any, Dict, List, Optional
 from datetime import datetime, timezone
 import json
 
