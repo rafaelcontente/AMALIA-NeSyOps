@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest-cov
+
+      - name: Run full test suite
+        run: python -m pytest tests/ -v --tb=short
+
+      - name: Coverage on critical modules (fail under 70%)
+        run: |
+          python -m pytest tests/ -q \
+            --cov=core --cov=gate --cov=policy \
+            --cov=audit --cov=ingest --cov=reasoning \
+            --cov-report=term-missing --cov-fail-under=70
+
+      - name: Security tests must pass
+        run: python -m pytest tests/security/ -v

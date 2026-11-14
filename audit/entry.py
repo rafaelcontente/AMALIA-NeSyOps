@@ -76,6 +76,6 @@ class AuditEntry(BaseModel):
             "previous_hash": self.previous_hash,
             "retention_until": self.retention_until.isoformat() if self.retention_until else None
         }
-        json_str = json.dumps(data, sort_keys=True)
+        json_str = json.dumps(data, sort_keys=True, default=str)
         import hashlib
         return hashlib.sha256(json_str.encode()).hexdigest()

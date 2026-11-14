@@ -7,6 +7,7 @@ from core.models import Proposal, Verdict, VerdictStatus, TraceID
 from policy.registry import RuleRegistry
 from policy.engine import RuleEvaluator
 from datetime import datetime, timezone
+from ingest.security import check_prompt_injection
 
 class ValidationResult:
     def __init__(self, layer: str, passed: bool, reason: str = "", details: Dict = None):
@@ -58,10 +59,31 @@ class GateValidator:
                 return ValidationResult("structure", False, "Proposal sem conteúdo")
             if proposal.trace_id is None:
                 return ValidationResult("structure", False, "Proposal sem trace_id")
+            # Texto ingerido e dado nao confiavel: detetar injecao antes de qualquer decisao
+            for field, text in self._iter_text_values(proposal.content):
+                detected, reason = check_prompt_injection(text)
+                if detected:
+                    return ValidationResult(
+                        "structure", False,
+                        f"Prompt injection detetada no campo '{field}': {reason}",
+                    )
             return ValidationResult("structure", True)
         except Exception as e:
             return ValidationResult("structure", False, f"Erro de estrutura: {str(e)}")
     
+    @staticmethod
+    def _iter_text_values(content, prefix=""):
+        """Percorre todos os valores de texto (incluindo dicts/listas aninhados)."""
+        if isinstance(content, dict):
+            for k, v in content.items():
+                field = f"{prefix}.{k}" if prefix else str(k)
+                yield from GateValidator._iter_text_values(v, field)
+        elif isinstance(content, (list, tuple)):
+            for i, v in enumerate(content):
+                yield from GateValidator._iter_text_values(v, f"{prefix}[{i}]")
+        elif isinstance(content, str):
+            yield prefix, content
+
     def _validate_consistency(self, proposal: Proposal) -> ValidationResult:
         """Camada 2: Consistência interna dos campos."""
         content = proposal.content
