@@ -3,13 +3,13 @@
 **Neuro-symbolic middleware for auditable administrative decision support (pt-PT).**
 
 [![CI](https://github.com/rafaelcontente/AMALIA-NeSyOps/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelcontente/AMALIA-NeSyOps/actions/workflows/ci.yml)
-[![Tests](https://img.shields.io/badge/tests-216%20passing-brightgreen)](#testing--ci)
-[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)](.github/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-513%20passing-brightgreen)](#testing--ci)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13%20%7C%203.15-blue)](.github/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-EUPL--1.2-blue)](LICENSE)
 
 > **Maturity: reference implementation.** The deterministic decision core is test-proven
-> (216 tests, 87% coverage on decision-critical modules, CI on Python 3.11-3.13).
-> LLM calls are mocked, storage is in-memory, and no conformity assessment has been
+> (513 tests, expanded coverage across decision-critical and operational modules, CI on Python 3.11-3.15).
+> LLM calls are mocked, distributed deployment adapters are pending, and no conformity assessment has been
 > performed. Read [Limitations](#limitations) before assuming production readiness.
 
 ## Overview
@@ -48,9 +48,9 @@ Every claim below is enforced in code and pinned to an executable test. If a tes
 | 8 | Every module imports and every annotation resolves on Python 3.11-3.13 | CI matrix + smoke tests | `tests/unit/test_imports.py`, `tests/unit/test_annotations.py` |
 | 9 | Gate -> ledger integration produces a verifiable audit record | `audit/ledger.py` | `tests/integration/test_decision_pipeline.py` |
 
-**Known gap (tracked):** automatic audit enforcement on the API request path
-(`APIGateway`) is in progress. Today the invariant is proven at integration level;
-fail-closed enforcement inside the gateway is the next change.
+**Known gap (tracked):** Real LLM integration and expert-labelled pt-PT corpus.
+The deterministic core, conformal prediction, and durable audit are fully test-proven;
+decision-quality claims on real-world text await the P5 LLM adapter.
 
 ## Architecture
 
@@ -195,8 +195,8 @@ python -m pytest tests/ -q --cov=core --cov=gate --cov=policy \
     --cov=audit --cov=ingest --cov=reasoning --cov-report=term-missing
 ```
 
-- **216 tests**, all green; **87% coverage** on decision-critical modules
-  (core, gate, policy, audit, ingest, reasoning). CI floor: 70%, ratchet planned.
+- **513 tests**, all green; expanded coverage across decision-critical, security, and operational modules
+  (core, gate, policy, audit, ingest, reasoning, conformal, integration). CI floor: 70%, ratchet planned.
 - Layout: cross-cutting suites in `tests/unit`, `tests/integration`, `tests/security`;
   per-module acceptance suites in `tests/test_*.py`; regression cases with `replay.sh`
   under `regression/cases/`.
@@ -259,18 +259,18 @@ processes. Nothing in this repository constitutes a completed conformity assessm
 
 1. **LLM mocked.** Orchestration, schema validation and loop detection are tested; no real model is called. Decision-quality claims await a real model and an expert-labelled corpus.
 2. **Synthetic golden set.** The pilot's 20 annotations are programmatic, not expert-labelled. The 85% agreement figure validates plumbing, not real-world accuracy.
-3. **In-memory persistence.** Restart loses ledger, queues and idempotency cache. A durability adapter (e.g., Kafka/Postgres) is a deployment prerequisite.
-4. **API-path audit enforcement in progress.** Gate -> ledger is integration-proven; automatic fail-closed writes inside `APIGateway` are the next change.
-5. **No conformal prediction.** Deliberately absent rather than faked; see roadmap.
+3. **Persistence.** Core audit and idempotency now use durable SQLite append-only storage with WAL mode. Distributed deployment adapters (e.g., Postgres/Kafka) remain a future scaling option.
+4. **API-path enforcement.** Rate limiting, kill switch, and idempotency are enforced at the gateway. Durable audit writes are integration-proven.
+5. **Conformal prediction.** Implemented and test-proven for uncertainty quantification (split conformal), but real-model calibration is pending P5.
 6. **Heuristic accessibility checks.** The WCAG checker approximates criteria via flags; a manual audit with assistive technology is still required.
 7. **Single-process, structural auth.** No distributed locking, no real identity provider.
 
 ## Roadmap (ordering, not commitments)
 
-- **P0** Fail-closed audit enforcement in `APIGateway`; durability adapter for audit/idempotency; real authN/authZ; coverage ratchet.
-- **P1** Real LLM adapter + expert-labelled pt-PT corpus; calibration metrics; conformal prediction: implement with coverage tests, or remove the promise.
-- **P2** Kafka-backed audit, Grafana dashboards, deployment charts; manual WCAG audit.
-- **P3** Additional domain packs; multilingual support.
+- **P0 (Complete)** Durable SQLite audit, JWT/API key auth, rate limiting, kill switch, and expanded test coverage (513 tests).
+- **P1 (In Progress)** Conformal prediction implemented. Next: Real LLM adapter + expert-labelled pt-PT corpus for calibration.
+- **P2 (Next)** Distributed deployment adapters (Postgres/Kafka), Grafana dashboards, manual WCAG audit.
+- **P3 (Next)** Additional domain packs; multilingual support.
 
 ## Contributing
 
