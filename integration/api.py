@@ -2,6 +2,8 @@
 from typing import Dict, Any, Optional
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
+from audit.ledger import AuditLedger
+from audit.entry import AuditEntry
 import json
 
 def utc_now() -> datetime:
@@ -34,10 +36,15 @@ class DecisionResult(BaseModel):
 class APIGateway:
     """Gateway de API que integra com o sistema de decisão."""
     
-    def __init__(self, gate, idempotency_manager, tenant_manager):
+    def __init__(self, gate, idempotency_manager, tenant_manager, ledger=None, versions=None):
         self.gate = gate
         self.idempotency_manager = idempotency_manager
         self.tenant_manager = tenant_manager
+        self.ledger = ledger if ledger is not None else AuditLedger()
+        self.versions = versions or {
+            "model": "unversioned", "prompt": "unversioned",
+            "rules": "unversioned", "schema": "v1",
+        }
         self.requests: Dict[str, Dict[str, Any]] = {}
         self.results: Dict[str, DecisionResult] = {}
     
@@ -123,8 +130,22 @@ class APIGateway:
             # Chamar gate (todas as decisões passam pelo gate)
             gate_result = self.gate.evaluate(proposal, context={"entity_id": entity_id})
             
+            decision = gate_result["verdict"].model_dump()
+
+            # INVARIANTE: registo auditavel ANTES de a decisao ser cacheada/libertada.
+            # Se falhar, a excecao propaga: nada e cacheado, nada e libertado (fail-closed).
+            self.ledger.append(AuditEntry(
+                trace_id=trace_id,
+                model_version=self.versions["model"],
+                prompt_version=self.versions["prompt"],
+                rules_version=self.versions["rules"],
+                schema_version=self.versions["schema"],
+                input_data=req_data,
+                decision=decision,
+            ))
+
             return {
-                "decision": gate_result["verdict"].model_dump(),
+                "decision": decision,
                 "explanation": "Decisão processada via gate"
             }
         
@@ -134,11 +155,16 @@ class APIGateway:
             "metadata": request.metadata
         }
         
-        idem_result = self.idempotency_manager.check_and_process(
-            request_data,
-            request.entity_id,
-            process_fn
-        )
+        try:
+            idem_result = self.idempotency_manager.check_and_process(
+                request_data,
+                request.entity_id,
+                process_fn
+            )
+        except Exception as e:
+            self.requests[trace_id]["status"] = "failed"
+            self.requests[trace_id]["error"] = f"Decision blocked: {e}"
+            return
         
         # Armazenar resultado
         result = DecisionResult(
