@@ -1,0 +1,10 @@
+{
+  "core": 100.0,
+  "gate": 89.9,
+  "policy": 85.2,
+  "audit": 76.2,
+  "ingest": 93.8,
+  "reasoning": 90.3,
+  "formalize": 94.8,
+  "integration": 74.2
+}

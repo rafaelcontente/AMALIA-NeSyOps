@@ -24,17 +24,21 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest-cov
 
-      - name: Run full test suite
-        run: python -m pytest tests/ -v --tb=short
+      - name: Run full test suite (offline guaranteed by conftest)
+        run: python -m pytest tests/ -q --tb=short
 
-      - name: Coverage on critical modules (fail under 70%)
-        run: |
-          python -m pytest tests/ -q \
-            --cov=core --cov=gate --cov=policy \
-            --cov=audit --cov=ingest --cov=reasoning \
-            --cov-report=term-missing --cov-fail-under=70
+      - name: Coverage per critical module vs versioned baseline
+        run: python scripts/check_coverage.py
 
-      - name: Security tests must pass
-        run: python -m pytest tests/security/ -v
+      - name: Upload coverage report
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            coverage.xml
+            coverage.json
+
+      - name: Security tests
+        run: python -m pytest tests/security/ -q
