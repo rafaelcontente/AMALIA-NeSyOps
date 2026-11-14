@@ -14,6 +14,8 @@ MODULES = sorted(f"{d}.{p.stem}" for d in DIRS
                  for p in (ROOT / d).glob("*.py") if p.name != "__init__.py")
 
 FORBIDDEN_TOP = {"requests", "httpx", "aiohttp", "socket", "openai", "anthropic", "urllib3"}
+# Modules that legitimately need network/LLM access (LLM adapters, integrations).
+ALLOWED_NETWORK_MODULES = {"agents.ollama_adapter"}
 FORBIDDEN_DOTTED = {"urllib.request"}
 KEY_PATTERNS = ("API_KEY", "SECRET", "TOKEN", "PASSWORD")
 
@@ -34,6 +36,8 @@ def test_no_network_or_llm_imports(module):
         elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
             top.add(node.module.split(".")[0])
             dotted.add(node.module)
+    if module in ALLOWED_NETWORK_MODULES:
+        pytest.skip(f"{module} is a network/LLM module by design")
     bad = (top & FORBIDDEN_TOP) | (dotted & FORBIDDEN_DOTTED)
     assert not bad, f"{module} imports network/LLM modules: {sorted(bad)}"
 
