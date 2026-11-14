@@ -1,0 +1,8 @@
+{
+  "calibration_size": 30,
+  "test_size": 20,
+  "target_coverage": 0.9,
+  "actual_coverage": 1.0,
+  "average_set_size": 1.0,
+  "quantile": 0.719
+}
