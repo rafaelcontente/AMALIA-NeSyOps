@@ -19,8 +19,9 @@ class SafeExpressionEvaluator:
     # Inclui nós de contexto (Load, Store, Del) que são inofensivos e aparecem em variáveis
     ALLOWED_NODES = {
         ast.Expression, ast.Compare, ast.Name, ast.Constant,
-        ast.And, ast.Or, ast.Not, ast.UnaryOp,
+        ast.And, ast.Or, ast.Not, ast.UnaryOp, ast.BoolOp,
         ast.Eq, ast.NotEq, ast.Lt, ast.LtE, ast.Gt, ast.GtE,
+        ast.USub, ast.UAdd,
         ast.Load, ast.Store, ast.Del  # Nós de contexto (inofensivos)
     }
 
@@ -51,6 +52,10 @@ class SafeExpressionEvaluator:
             left = self._eval_node(node.left, context)
             for op, comparator in zip(node.ops, node.comparators):
                 right = self._eval_node(comparator, context)
+
+                # Dado nulo: comparacao nao avaliavel -> regra nao passa
+                if left is None or right is None:
+                    return False
                 
                 if isinstance(op, ast.Eq) and not (left == right): return False
                 elif isinstance(op, ast.NotEq) and not (left != right): return False
@@ -68,8 +73,14 @@ class SafeExpressionEvaluator:
             elif isinstance(node.op, ast.Or):
                 return any(self._eval_node(v, context) for v in node.values)
         
-        elif isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.Not):
-            return not self._eval_node(node.operand, context)
+        elif isinstance(node, ast.UnaryOp):
+            operand = self._eval_node(node.operand, context)
+            if isinstance(node.op, ast.Not):
+                return not operand
+            if isinstance(node.op, ast.USub):
+                return -operand
+            if isinstance(node.op, ast.UAdd):
+                return +operand
         
         raise SecurityError(f"Avaliação não suportada para o nó: {type(node).__name__}")
 
@@ -105,7 +116,7 @@ class RuleEvaluator:
                     'verdict': 'PASS' if result else 'FAIL',
                     'description': rule.description
                 })
-            except (ValueError, SecurityError) as e:
+            except (ValueError, SecurityError, TypeError) as e:
                 results.append({
                     'rule_id': rule.id,
                     'rule_version': rule.version,
