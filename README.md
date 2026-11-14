@@ -190,3 +190,85 @@ def decide(case):
 report = DomainEvaluator().evaluate_pack(pack, decide)
 print(report["agreement"]["agreement_rate"])
 ```
+
+## Testing & CI
+
+```bash
+python -m pytest tests/ -q                                   # full suite
+python -m pytest tests/security/ -v                          # security only
+python -m pytest tests/ -q --cov=core --cov=gate --cov=policy \
+    --cov=audit --cov=ingest --cov=reasoning --cov-report=term-missing
+```
+
+- **216 tests**, all green; **87% coverage** on decision-critical modules
+  (core, gate, policy, audit, ingest, reasoning). CI floor: 70%, ratchet planned.
+- Layout: cross-cutting suites in `tests/unit`, `tests/integration`, `tests/security`;
+  per-module acceptance suites in `tests/test_*.py`; regression cases with `replay.sh`
+  under `regression/cases/`.
+- Two permanent smoke suites exist because of real incidents: `test_imports.py`
+  (a module no test imported had a latent `NameError`) and `test_annotations.py`
+  (PEP 649 on Python 3.15 masked missing `typing` imports that broke 3.12 CI).
+  Both bug classes are now caught on any interpreter.
+- CI (`.github/workflows/ci.yml`): 3-version matrix (3.11/3.12/3.13), `fail-fast: false`,
+  full suite, coverage gate, isolated security job.
+
+## Security
+
+**Covered today:** regex injection detection (19 patterns, PT/EN, jailbreak/XSS/SQL)
+wired into gate L1 with nested-field scanning; AST-safe rule evaluation (no `eval`);
+tenant isolation; pseudonymization and GDPR-style erasure that preserves the hash
+chain; kill switch and shadow mode in `monitor/`.
+
+**Not covered yet:** detection is pattern-based and bypassable by novel phrasings
+(defense-in-depth, not a guarantee); authentication/authorization is structural, not
+cryptographic; no TLS or rate-limiting layer; stores are in-memory. To report a
+vulnerability, open a GitHub issue marked `security` without exploit details and
+request a private channel.
+
+## Compliance: evidence, not certification
+
+`compliance/` generates model cards, data sheets, a risk register, a
+requirement -> rule -> test -> audit traceability matrix, framework mappings
+(EU AI Act Arts. 9-13, GDPR Arts. 5/17/22, ISO/IEC 42001, NIST AI RMF) and a
+jurist/DPO sign-off checklist.
+
+**No tool certifies a system by itself.** These modules produce evidence; conformity
+assessment, legal classification of the use case, and accountability remain human
+processes. Nothing in this repository constitutes a completed conformity assessment.
+
+## Limitations
+
+1. **LLM mocked.** Orchestration, schema validation and loop detection are tested; no real model is called. Decision-quality claims await a real model and an expert-labelled corpus.
+2. **Synthetic golden set.** The pilot's 20 annotations are programmatic, not expert-labelled. The 85% agreement figure validates plumbing, not real-world accuracy.
+3. **In-memory persistence.** Restart loses ledger, queues and idempotency cache. A durability adapter (e.g., Kafka/Postgres) is a deployment prerequisite.
+4. **API-path audit enforcement in progress.** Gate -> ledger is integration-proven; automatic fail-closed writes inside `APIGateway` are the next change.
+5. **No conformal prediction.** Deliberately absent rather than faked; see roadmap.
+6. **Heuristic accessibility checks.** The WCAG checker approximates criteria via flags; a manual audit with assistive technology is still required.
+7. **Single-process, structural auth.** No distributed locking, no real identity provider.
+
+## Roadmap (ordering, not commitments)
+
+- **P0** Fail-closed audit enforcement in `APIGateway`; durability adapter for audit/idempotency; real authN/authZ; coverage ratchet.
+- **P1** Real LLM adapter + expert-labelled pt-PT corpus; calibration metrics; conformal prediction: implement with coverage tests, or remove the promise.
+- **P2** Kafka-backed audit, Grafana dashboards, deployment charts; manual WCAG audit.
+- **P3** Additional domain packs; multilingual support.
+
+## Contributing
+
+Fork -> branch -> change -> `pytest tests/ -q` green -> PR. Rules of the house:
+any new decision path ships with an audit-invariant test; any new guarantee ships
+with a proof test and a row in the guarantees table; README metrics are updated
+only from measured repository state, never hand-waved.
+
+## License
+
+EUPL-1.2. See [LICENSE](LICENSE).
+
+## Acknowledgments
+
+ETALAB (French State AI Hub), UNDP transparency tooling, SantanderAI fairness work,
+and The AI Alliance evaluation tooling — as public references and inspiration.
+
+---
+
+Maintainer: Rafael Contente · [Issues](https://github.com/rafaelcontente/AMALIA-NeSyOps/issues)
