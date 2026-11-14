@@ -47,6 +47,7 @@ class APIGateway:
         }
         self.requests: Dict[str, Dict[str, Any]] = {}
         self.results: Dict[str, DecisionResult] = {}
+        self.kill_switch_active = False
     
     def submit_decision(self, request: DecisionRequest) -> DecisionResponse:
         """
@@ -58,6 +59,17 @@ class APIGateway:
         Returns:
             Response com trace_id para polling
         """
+        # Verificar kill switch
+        if self.kill_switch_active:
+            trace_id = f"T-{request.request_id}"
+            self.requests[trace_id] = {
+                "request": request,
+                "status": "failed",
+                "error": "Kill switch active: new decisions blocked",
+                "created_at": utc_now()
+            }
+            return DecisionResponse(trace_id=trace_id, status="failed")
+        
         # Verificar autorização do utilizador
         if not self.tenant_manager.verify_access(request.user_id, request.entity_id):
             raise PermissionError(
