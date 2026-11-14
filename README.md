@@ -54,40 +54,75 @@ fail-closed enforcement inside the gateway is the next change.
 
 ## Architecture
 
-```
-apps/          reviewer console | audit explorer | manager dashboard | rule editor
-               (API-only; zero decision logic; always shows rules_version)
-   |
-integration/   REST gateway | idempotency | tenant isolation | webhooks | MCP tools
-   |
-gate/          L1 structure + injection scan -> L2 consistency -> L3 domain rules
-               -> L4 plausibility -> L5 claim/evidence verification
-               fail -> bounded repair (1/2) -> escalate to review/
-   |--- policy/     AST-safe rule engine, maker-checker, versioned rule sets
-   |--- reasoning/  deterministic solver + independent proof verification
-   |--- knowledge/  RDF ontology (rdflib), temporal validity, cited retrieval
-   |--- ingest/     parsing, pt-PT normalization, untrusted-text flagging
-   ^
-agents/        LLM orchestration (mocked in tests) - proposes, never decides
+Requests flow top-down. Every layer may only call the layer below it, and no layer
+except `gate/` may release a decision.
 
-Cross-cutting: core/ frozen models | audit/ hash chain | monitor/ drift, kill switch,
-shadow mode | eval/ golden sets, red team, baseline | compliance/ evidence |
-domains/ packs | review/ human queue
+```mermaid
+flowchart TD
+    APPS["apps/ — reviewer console, audit explorer, manager dashboard, rule editor"]
+    INT["integration/ — REST gateway, idempotency, tenant isolation, webhooks, MCP"]
+    GATE["gate/ — 5 validation layers: structure+injection, consistency, rules, plausibility, claims"]
+    REVIEW["review/ — human queue with maker-checker"]
+    POL["policy/ — AST-safe rules, maker-checker, versioned rule sets"]
+    REA["reasoning/ — deterministic solver + independent proof check"]
+    KNO["knowledge/ — RDF ontology, temporal validity, cited retrieval"]
+    ING["ingest/ — parsing, pt-PT normalization, untrusted-text flagging"]
+    AGENTS["agents/ — LLM orchestration, mocked in tests: proposes, never decides"]
+    AUD["audit/ — hash-chained ledger"]
+    EXP["explain/ — citizen and auditor views"]
+
+    APPS -->|API only, zero decision logic| INT
+    INT --> GATE
+    GATE -->|fail: repair 1 of 2, then escalate| REVIEW
+    GATE --> POL
+    GATE --> REA
+    GATE --> KNO
+    GATE --> ING
+    AGENTS -->|proposal input| GATE
+    GATE -->|every released decision| AUD
+    GATE --> EXP
 ```
 
-**Decision lifecycle:** `POST /decisoes` -> `202 {trace_id}` -> ingest -> proposal ->
-gate (repair <= 2, else escalate) -> audit append -> decision + dual-view explanation
-(citizen / auditor) -> human review if escalated.
+Cross-cutting modules, used by all layers: `core/` frozen models, `monitor/` drift
+detection + kill switch + shadow mode, `eval/` golden sets + red team + baseline,
+`compliance/` evidence generation, `domains/` domain packs.
+
+**Decision lifecycle**
+
+1. `POST /decisoes` returns `202 {trace_id}`.
+2. `ingest/` parses and normalizes; all document text is flagged untrusted.
+3. `agents/` draft a proposal (mocked in tests).
+4. `gate/` validates through 5 layers; on failure, bounded repair (attempt 1 of 2), then escalation.
+5. The decision is appended to the `audit/` ledger before it is released.
+6. `explain/` renders citizen and auditor views from the same trace.
+7. Escalated cases enter the `review/` queue; a different human decides (maker-checker).
 
 ## Repository layout
 
+```text
+amalia-neysyops/
+├── core/             frozen Pydantic models: Proposal, Verdict, TraceID
+├── ingest/           parsing, pt-PT normalization, injection flagging
+├── knowledge/        RDF ontology via rdflib, temporal validity, cited retrieval
+├── policy/           rule models, registry with maker-checker, AST-safe engine
+├── formalize/        normative text to rule proposals
+├── reasoning/        deterministic solver + independent proof verification
+├── agents/           LLM orchestration, tool whitelist, loop detection
+├── gate/             5-layer validator, bounded repair planner, gate
+├── explain/          dual-view explanation generator + fidelity validator
+├── audit/            hash-chained ledger, pseudonymization, erasure, replay
+├── review/           human review queue + interface, maker-checker
+├── monitor/          drift detection, kill switch, shadow mode, alerts
+├── compliance/       model cards, traceability matrix, risk register, checklists
+├── eval/             golden sets, red team, baseline comparison, reports
+├── integration/      API gateway, idempotency, tenants, webhooks, MCP, adapters
+├── domains/          domain packs; pilot: commercial licensing
+├── apps/             reviewer, auditor, manager, jurist interfaces; API-only
+├── tests/            unit/, integration/, security/ + per-module suites
+├── regression/cases/ per-module cases: input, expected, actual, rules, verdict, replay
+└── .github/workflows/ci.yml
 ```
-core/ ingest/ knowledge/ policy/ formalize/ reasoning/ agents/ gate/ explain/
-audit/ review/ monitor/ compliance/ eval/ integration/ domains/ apps/   # 17 modules
-tests/            unit/ integration/ security/ + per-module acceptance suites
-regression/cases/ per-module cases: input, expected, actual, rules, verdict, replay.sh
-.github/workflows/ci.yml
-```
+
 
 ## Quickstart
 
