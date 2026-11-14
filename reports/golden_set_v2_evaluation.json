@@ -1,0 +1,148 @@
+{
+  "timestamp": "2026-11-14T21:45:39.712720+00:00",
+  "total_cases": 50,
+  "global_metrics": {
+    "accuracy": 0.96,
+    "false_positive_rate": 0.04,
+    "false_negative_rate": 0.0,
+    "escalation_rate": 0.1
+  },
+  "category_metrics": [
+    {
+      "category": "conflito_regras",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "dados_incompletos",
+      "total": 5,
+      "correct": 4,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 0.8,
+      "fp_rate": 0.2,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "elegível_claro",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "erro_llm",
+      "total": 5,
+      "correct": 4,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 0.8,
+      "fp_rate": 0.2,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "exceção_aplicável",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "ignorar_regras",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "inelegível_claro",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "injeção_prompt",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "limítrofe",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 0,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 0.0
+    },
+    {
+      "category": "revisão_humana",
+      "total": 5,
+      "correct": 5,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "escalations": 5,
+      "accuracy": 1.0,
+      "fp_rate": 0.0,
+      "fn_rate": 0.0,
+      "escalation_rate": 1.0
+    }
+  ],
+  "failures": [
+    {
+      "case_id": "INCOMP-005",
+      "category": "dados_incompletos",
+      "expected": "rejected",
+      "actual": "approved",
+      "rules_violated": []
+    },
+    {
+      "case_id": "LLM-ERR-005",
+      "category": "erro_llm",
+      "expected": "rejected",
+      "actual": "approved",
+      "rules_violated": []
+    }
+  ]
+}
