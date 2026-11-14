@@ -291,3 +291,23 @@ and The AI Alliance evaluation tooling — as public references and inspiration.
 ---
 
 Maintainer: Rafael Contente · [Issues](https://github.com/rafaelcontente/AMALIA-NeSyOps/issues)
+
+
+## Citation
+
+If you use AMALIA or the underlying Portuguese LLM in your research, please cite:
+
+```bibtex
+@inproceedings{simplicio-etal-2026-amalia,
+    title = "{AMALIA}: A Fully Open Large Language Model for {E}uropean {P}ortuguese",
+    author = "Simpl{\'i}cio, Afonso and Vinagre, Gon{\c{c}}alo and Ramos, Miguel Moura and Tavares, Diogo and Ferreira, Rafael and Attanasio, Giuseppe and Alves, Duarte M. and Calvo, In{\^e}s and Vieira, In{\^e}s and Guerra, Rui and Furtado, James and Canaverde, Beatriz and Paulo, Iago and Ramos, Vasco and Gl{\'o}ria-Silva, Diogo and Faria, Miguel and Treviso, Marcos and Gomes, Daniel and Gomes, Pedro and Semedo, David and Martins, Andr{\'e} and Magalh{\~a}es, Jo{\~a}o",
+    booktitle = "Proceedings of the 17th International Conference on Computational Processing of {P}ortuguese ({PROPOR} 2026) - Vol. 1",
+    month = apr,
+    year = "2026",
+    address = "Salvador, Brazil",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.propor-1.38/",
+    pages = "380--391",
+    isbn = "979-8-89176-387-6"
+}
+```
