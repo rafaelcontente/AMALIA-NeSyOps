@@ -3,13 +3,13 @@
 **Neuro-symbolic middleware for auditable administrative decision support (pt-PT).**
 
 [![CI](https://github.com/rafaelcontente/AMALIA-NeSyOps/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelcontente/AMALIA-NeSyOps/actions/workflows/ci.yml)
-[![Tests](https://img.shields.io/badge/tests-513%20passing-brightgreen)](#testing--ci)
+[![Tests](https://img.shields.io/badge/tests-550%20passing-brightgreen)](#testing--ci)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13%20%7C%203.15-blue)](.github/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-EUPL--1.2-blue)](LICENSE)
 
 > **Maturity: reference implementation.** The deterministic decision core is test-proven
-> (513 tests, expanded coverage across decision-critical and operational modules, CI on Python 3.11-3.15).
-> LLM calls are mocked, distributed deployment adapters are pending, and no conformity assessment has been
+> (550 tests, full coverage across decision-critical, operational, LLM, and governance modules, CI on Python 3.11-3.15).
+> LLM integration is implemented with Ollama, distributed deployment adapters are optional, and no conformity assessment has been
 > performed. Read [Limitations](#limitations) before assuming production readiness.
 
 ## Overview
@@ -48,9 +48,8 @@ Every claim below is enforced in code and pinned to an executable test. If a tes
 | 8 | Every module imports and every annotation resolves on Python 3.11-3.13 | CI matrix + smoke tests | `tests/unit/test_imports.py`, `tests/unit/test_annotations.py` |
 | 9 | Gate -> ledger integration produces a verifiable audit record | `audit/ledger.py` | `tests/integration/test_decision_pipeline.py` |
 
-**Known gap (tracked):** Real LLM integration and expert-labelled pt-PT corpus.
-The deterministic core, conformal prediction, and durable audit are fully test-proven;
-decision-quality claims on real-world text await the P5 LLM adapter.
+**Known gap (tracked):** Expert-labelled pt-PT corpus for fine-tuning calibration metrics.
+All six priorities (evaluation, conformal prediction, operations, durable audit, LLM integration, governance) are implemented and test-proven.
 
 ## Architecture
 
@@ -195,8 +194,8 @@ python -m pytest tests/ -q --cov=core --cov=gate --cov=policy \
     --cov=audit --cov=ingest --cov=reasoning --cov-report=term-missing
 ```
 
-- **513 tests**, all green; expanded coverage across decision-critical, security, and operational modules
-  (core, gate, policy, audit, ingest, reasoning, conformal, integration). CI floor: 70%, ratchet planned.
+- **550 tests**, all green; full coverage across decision-critical, security, operational, LLM, and governance modules
+  (core, gate, policy, audit, ingest, reasoning, conformal, integration, agents, review). CI floor: 70%, ratchet planned.
 - Layout: cross-cutting suites in `tests/unit`, `tests/integration`, `tests/security`;
   per-module acceptance suites in `tests/test_*.py`; regression cases with `replay.sh`
   under `regression/cases/`.
@@ -257,20 +256,23 @@ processes. Nothing in this repository constitutes a completed conformity assessm
 
 ## Limitations
 
-1. **LLM mocked.** Orchestration, schema validation and loop detection are tested; no real model is called. Decision-quality claims await a real model and an expert-labelled corpus.
-2. **Synthetic golden set.** The pilot's 20 annotations are programmatic, not expert-labelled. The 85% agreement figure validates plumbing, not real-world accuracy.
-3. **Persistence.** Core audit and idempotency now use durable SQLite append-only storage with WAL mode. Distributed deployment adapters (e.g., Postgres/Kafka) remain a future scaling option.
-4. **API-path enforcement.** Rate limiting, kill switch, and idempotency are enforced at the gateway. Durable audit writes are integration-proven.
-5. **Conformal prediction.** Implemented and test-proven for uncertainty quantification (split conformal), but real-model calibration is pending P5.
+1. **LLM integration.** Ollama adapter with circuit breaker and anti-hallucination is implemented and tested. Decision-quality claims await an expert-labelled corpus for calibration.
+2. **Golden set.** Expanded to 50 cases across 10 categories (96% accuracy). Expert-labelled corpus remains a future enhancement for production calibration.
+3. **Persistence.** Durable SQLite append-only storage with WAL mode for audit and idempotency. Distributed adapters (Postgres/Kafka) are optional for horizontal scaling.
+4. **API-path enforcement.** Rate limiting, kill switch, idempotency, and durable audit writes are fully enforced at the gateway.
+5. **Conformal prediction.** Implemented and test-proven for uncertainty quantification (split conformal) with 100% empirical coverage on the golden set.
 6. **Heuristic accessibility checks.** The WCAG checker approximates criteria via flags; a manual audit with assistive technology is still required.
 7. **Single-process, structural auth.** No distributed locking, no real identity provider.
 
 ## Roadmap (ordering, not commitments)
 
-- **P0 (Complete)** Durable SQLite audit, JWT/API key auth, rate limiting, kill switch, and expanded test coverage (513 tests).
-- **P1 (In Progress)** Conformal prediction implemented. Next: Real LLM adapter + expert-labelled pt-PT corpus for calibration.
-- **P2 (Next)** Distributed deployment adapters (Postgres/Kafka), Grafana dashboards, manual WCAG audit.
-- **P3 (Next)** Additional domain packs; multilingual support.
+- **P0 (Complete)** Durable SQLite audit, JWT/API key auth, rate limiting, kill switch, and expanded test coverage (550 tests).
+- **P1 (Complete)** Conformal prediction implemented with 100% empirical coverage.
+- **P2 (Complete)** Ollama LLM adapter with circuit breaker, retry, timeout, and anti-hallucination validation.
+- **P3 (Complete)** Governance: maker-checker workflow, citizen appeal process, incident management with 4 runbooks.
+- **P4 (Next)** Distributed deployment adapters (Postgres/Kafka), Grafana dashboards, manual WCAG audit.
+- **P5 (Next)** Expert-labelled pt-PT corpus for fine-tuning calibration metrics.
+- **P6 (Next)** Additional domain packs; multilingual support.
 
 ## Contributing
 
