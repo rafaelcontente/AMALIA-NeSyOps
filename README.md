@@ -59,17 +59,17 @@ except `gate/` may release a decision.
 
 ```mermaid
 flowchart TD
-    APPS["apps/ — reviewer console, audit explorer, manager dashboard, rule editor"]
-    INT["integration/ — REST gateway, idempotency, tenant isolation, webhooks, MCP"]
-    GATE["gate/ — 5 validation layers: structure+injection, consistency, rules, plausibility, claims"]
-    REVIEW["review/ — human queue with maker-checker"]
-    POL["policy/ — AST-safe rules, maker-checker, versioned rule sets"]
-    REA["reasoning/ — deterministic solver + independent proof check"]
-    KNO["knowledge/ — RDF ontology, temporal validity, cited retrieval"]
-    ING["ingest/ — parsing, pt-PT normalization, untrusted-text flagging"]
-    AGENTS["agents/ — LLM orchestration, mocked in tests: proposes, never decides"]
-    AUD["audit/ — hash-chained ledger"]
-    EXP["explain/ — citizen and auditor views"]
+    APPS["apps/ - reviewer console, audit explorer, manager dashboard, rule editor"]:::iface
+    INT["integration/ - REST gateway, idempotency, tenant isolation, webhooks, MCP"]:::pipe
+    GATE["gate/ - 5 validation layers: structure+injection, consistency, rules, plausibility, claims"]:::pipe
+    REVIEW["review/ - human queue with maker-checker"]:::human
+    POL["policy/ - AST-safe rules, maker-checker, versioned rule sets"]:::pipe
+    REA["reasoning/ - deterministic solver + independent proof check"]:::pipe
+    KNO["knowledge/ - RDF ontology, temporal validity, cited retrieval"]:::pipe
+    ING["ingest/ - parsing, pt-PT normalization, untrusted-text flagging"]:::pipe
+    AGENTS["agents/ - LLM orchestration, mocked in tests: proposes, never decides"]:::llm
+    AUD["audit/ - hash-chained ledger"]:::evid
+    EXP["explain/ - citizen and auditor views"]:::evid
 
     APPS -->|API only, zero decision logic| INT
     INT --> GATE
@@ -81,21 +81,16 @@ flowchart TD
     AGENTS -->|proposal input| GATE
     GATE -->|every released decision| AUD
     GATE --> EXP
+
+    classDef iface fill:#6f42c1,stroke:#4b2e83,color:#fff
+    classDef pipe  fill:#0969da,stroke:#0550ae,color:#fff
+    classDef evid  fill:#1a7f37,stroke:#116329,color:#fff
+    classDef human fill:#9a6700,stroke:#7d5400,color:#fff
+    classDef llm   fill:#57606a,stroke:#424a53,color:#fff
 ```
 
-Cross-cutting modules, used by all layers: `core/` frozen models, `monitor/` drift
-detection + kill switch + shadow mode, `eval/` golden sets + red team + baseline,
-`compliance/` evidence generation, `domains/` domain packs.
-
-**Decision lifecycle**
-
-1. `POST /decisoes` returns `202 {trace_id}`.
-2. `ingest/` parses and normalizes; all document text is flagged untrusted.
-3. `agents/` draft a proposal (mocked in tests).
-4. `gate/` validates through 5 layers; on failure, bounded repair (attempt 1 of 2), then escalation.
-5. The decision is appended to the `audit/` ledger before it is released.
-6. `explain/` renders citizen and auditor views from the same trace.
-7. Escalated cases enter the `review/` queue; a different human decides (maker-checker).
+Legend: blue = decision pipeline, green = evidence and audit, purple = human-facing
+interfaces, amber = human decision point, grey = LLM layer (proposes, never decides).
 
 ## Repository layout
 
@@ -211,6 +206,30 @@ python -m pytest tests/ -q --cov=core --cov=gate --cov=policy \
   Both bug classes are now caught on any interpreter.
 - CI (`.github/workflows/ci.yml`): 3-version matrix (3.11/3.12/3.13), `fail-fast: false`,
   full suite, coverage gate, isolated security job.
+
+## Metrics
+
+Measured from the repository by `scripts/update_readme_metrics.py`; never hand-edited.
+
+![core](https://img.shields.io/badge/core-100%25-brightgreen) ![gate](https://img.shields.io/badge/gate-90%25-brightgreen) ![policy](https://img.shields.io/badge/policy-85%25-green) ![audit](https://img.shields.io/badge/audit-76%25-yellowgreen) ![ingest](https://img.shields.io/badge/ingest-94%25-brightgreen) ![reasoning](https://img.shields.io/badge/reasoning-90%25-brightgreen)
+
+```mermaid
+xychart-beta
+    title "Coverage by critical module (%)"
+    x-axis [core, gate, policy, audit, ingest, reasoning]
+    y-axis "coverage (%)" 0 --> 100
+    bar [100, 90, 85, 76, 94, 90]
+```
+
+```mermaid
+pie showData
+    title "Tests by suite (0 total)"
+    "unit" : 0
+    "integration" : 0
+    "security" : 0
+    "acceptance" : 0
+```
+
 
 ## Security
 
