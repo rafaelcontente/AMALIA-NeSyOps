@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reason": "Todos os 3 testes de validação do módulo reasoning/ passaram com sucesso. Solver exato implementado com verificação independente e rastreabilidade total.",
+  "gate_result": "approved",
+  "ts": "2026-11-14T11:30:00Z",
+  "trace_id": "reasoning-001",
+  "module": "reasoning",
+  "tests_passed": 3,
+  "tests_failed": 0
+}

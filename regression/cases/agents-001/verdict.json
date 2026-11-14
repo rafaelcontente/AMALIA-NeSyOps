@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reason": "Todos os 3 testes de validação do módulo agents/ passaram com sucesso. Camada de agentes segura, auditável e com controlo de loops.",
+  "gate_result": "approved",
+  "ts": "2026-11-14T11:45:00Z",
+  "trace_id": "agents-001",
+  "module": "agents",
+  "tests_passed": 3,
+  "tests_failed": 0
+}

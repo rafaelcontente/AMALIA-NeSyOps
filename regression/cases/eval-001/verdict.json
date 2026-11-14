@@ -1,0 +1,45 @@
+{
+  "case_id": "eval-001",
+  "module": "eval",
+  "timestamp": "2026-11-14T15:45:00+00:00",
+  "status": "pass",
+  "tests": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "details": [
+      {
+        "name": "test_ci_fails_on_regression",
+        "status": "passed",
+        "description": "CI falha perante regressão de 96% → 90%"
+      },
+      {
+        "name": "test_prompt_injection_does_not_alter_decisions",
+        "status": "passed",
+        "description": "0/5 ataques de injeção bem-sucedidos"
+      },
+      {
+        "name": "test_baseline_measured_and_system_surpasses",
+        "status": "passed",
+        "description": "Baseline e modelo medidos e comparados"
+      }
+    ]
+  },
+  "quality_metrics": {
+    "warnings_before": 12,
+    "warnings_after": 0,
+    "deprecation_fixes": [
+      "eval/golden_set.py",
+      "eval/red_team.py",
+      "eval/baseline.py",
+      "eval/report.py"
+    ]
+  },
+  "compliance": {
+    "ci_integration": true,
+    "security_testing": true,
+    "baseline_comparison": true,
+    "zero_warnings": true
+  },
+  "notes": "Módulo eval/ validado com sucesso. Sistema de avaliação contínua operacional."
+}

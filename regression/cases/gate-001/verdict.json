@@ -1,0 +1,18 @@
+{
+  "module": "gate",
+  "test_date": "2026-11-14",
+  "tests_passed": 3,
+  "tests_failed": 0,
+  "total_tests": 3,
+  "status": "approved",
+  "details": {
+    "defective_outputs_blocked": "5/5 (100%)",
+    "false_positive_rate": "0/100 (0%)",
+    "validator_failure_handling": "REJECTED correctly"
+  },
+  "security_notes": [
+    "Validador com fail-safe: recusa automática em caso de erro",
+    "Zero falsos positivos em propostas corretas",
+    "Bloqueio eficaz de propostas defeituosas"
+  ]
+}

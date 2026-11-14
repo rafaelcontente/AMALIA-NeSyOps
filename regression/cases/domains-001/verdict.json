@@ -1,0 +1,49 @@
+{
+  "case_id": "domains-001",
+  "module": "domains",
+  "timestamp": "2026-11-14T14:50:00+00:00",
+  "status": "pass",
+  "tests": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "details": [
+      {
+        "name": "test_pack_loads_and_validates_without_altering_core",
+        "status": "passed",
+        "description": "Pack carrega e valida contra core sem alterar core"
+      },
+      {
+        "name": "test_agreement_with_experts_meets_threshold",
+        "status": "passed",
+        "description": "Concordância com especialistas >= 85%"
+      },
+      {
+        "name": "test_out_of_scope_cases_escalate",
+        "status": "passed",
+        "description": "Casos fora de âmbito escalam corretamente"
+      }
+    ]
+  },
+  "pack_info": {
+    "pack_id": "piloto",
+    "version": "v0.1",
+    "domain": "Licenciamento Comercial",
+    "total_cases": 20,
+    "automatic_decisions": 17,
+    "escalated_cases": 3,
+    "agreement_rate": 0.85
+  },
+  "components": {
+    "ontology": "4 entidades, 3 relações",
+    "policy": "4 regras (3 hard, 1 soft)",
+    "sources": "2 fontes legais, 2 textos normativos, 1 precedente",
+    "golden_set": "20 casos + decisões de especialistas",
+    "templates": "3 templates (aprovação, rejeição, escalonamento)",
+    "limits": "3 in_scope, 4 out_of_scope, 3 escalation_criteria"
+  },
+  "fixes_applied": [
+    "Corrigida função _get_nested_value para busca profunda em sub-entidades"
+  ],
+  "notes": "Módulo domains/ validado com sucesso. Pack piloto operacional com escalonamento automático."
+}

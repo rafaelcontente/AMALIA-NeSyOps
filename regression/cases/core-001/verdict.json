@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reason": "Todos os 3 testes de validação passaram. Contratos imutáveis e funcionais.",
+  "gate_result": "approved",
+  "ts": "2026-11-14T10:15:00Z",
+  "trace_id": "core-001",
+  "module": "core",
+  "tests_passed": 3,
+  "tests_failed": 0
+}

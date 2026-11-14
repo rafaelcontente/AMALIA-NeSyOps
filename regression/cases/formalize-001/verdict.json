@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reason": "Todos os 3 testes de validação do módulo formalize/ passaram com sucesso. O pipeline de formalização está seguro e auditável.",
+  "gate_result": "approved",
+  "ts": "2026-11-14T11:15:00Z",
+  "trace_id": "formalize-001",
+  "module": "formalize",
+  "tests_passed": 3,
+  "tests_failed": 0
+}

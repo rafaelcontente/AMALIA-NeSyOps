@@ -1,0 +1,51 @@
+{
+  "case_id": "integration-001",
+  "module": "integration",
+  "timestamp": "2026-11-14T16:30:00+00:00",
+  "status": "pass",
+  "tests": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "details": [
+      {
+        "name": "test_idempotency_prevents_duplicate_decisions",
+        "status": "passed",
+        "description": "Request repetido retorna cached, não reprocessa"
+      },
+      {
+        "name": "test_tenant_isolation",
+        "status": "passed",
+        "description": "entity-A não acede a dados de entity-B"
+      },
+      {
+        "name": "test_gate_enforcement_no_bypass",
+        "status": "passed",
+        "description": "Todas as ações passam pelo gate, sem bypass"
+      }
+    ]
+  },
+  "components": {
+    "idempotency_manager": "✅ Funcional com TTL 24h",
+    "tenant_isolator": "✅ Isolamento completo",
+    "tenant_manager": "✅ Gestão de tenants e permissões",
+    "api_gateway": "✅ Integração com gate",
+    "webhook_manager": "✅ Notificações assíncronas",
+    "mcp_server": "✅ Ferramentas externas",
+    "adapters": "✅ OpenData, Legacy, Entity Resolution"
+  },
+  "compliance": {
+    "idempotency": true,
+    "multi_tenant_isolation": true,
+    "gate_enforcement": true,
+    "zero_trust": true,
+    "async_processing": true
+  },
+  "quality_metrics": {
+    "warnings": 0,
+    "deprecation_fixes": [
+      "datetime.now(timezone.utc) usado em todo o lado"
+    ]
+  },
+  "notes": "Módulo integration/ validado com sucesso. Camada de integração operacional com garantias de segurança."
+}

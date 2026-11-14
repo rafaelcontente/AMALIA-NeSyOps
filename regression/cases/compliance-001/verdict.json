@@ -1,0 +1,20 @@
+{
+  "module": "compliance",
+  "test_date": "2026-11-14",
+  "tests_passed": 3,
+  "tests_failed": 0,
+  "total_tests": 3,
+  "status": "approved",
+  "details": {
+    "traceability_matrix": "pass",
+    "package_reproducibility": "pass",
+    "jurist_checklist": "pass"
+  },
+  "compliance_notes": [
+    "Matriz de rastreabilidade identifica regras sem teste ou aprovação",
+    "Model cards reproduzíveis a partir de metadados do sistema",
+    "Mapeamento EU AI Act com taxa de cobertura calculável",
+    "Checklist assinável por jurista ou DPO",
+    "Documentação gerada automaticamente (não escrita à mão)"
+  ]
+}

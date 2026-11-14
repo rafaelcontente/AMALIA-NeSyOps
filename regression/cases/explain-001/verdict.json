@@ -1,0 +1,20 @@
+{
+  "module": "explain",
+  "test_date": "2026-11-14",
+  "tests_passed": 3,
+  "tests_failed": 0,
+  "total_tests": 3,
+  "status": "approved",
+  "details": {
+    "orphan_claims": 0,
+    "trace_sensitivity": "pass",
+    "comprehension_metrics": "pass",
+    "adverse_action_notices": "implemented"
+  },
+  "xai_notes": [
+    "Explicações fiéis ao trace com zero afirmações órfãs",
+    "Duas vistas (cidadão e auditor) geradas corretamente",
+    "Direito de recurso explicitado em decisões desfavoráveis",
+    "Linguagem clara em português europeu"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "approved",
+  "reason": "Todos os 3 testes de validação do módulo ingest/ passaram com sucesso.",
+  "gate_result": "approved",
+  "ts": "2026-11-14T10:35:00Z",
+  "trace_id": "ingest-001",
+  "module": "ingest",
+  "tests_passed": 3,
+  "tests_failed": 0
+}

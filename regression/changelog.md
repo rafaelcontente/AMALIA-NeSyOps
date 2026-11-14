@@ -1,0 +1,19 @@
+# Changelog de regressão
+- 2026-11-14 — core-001: Módulo core/ implementado e validado (3/3 testes).
+- 2026-11-14 — ingest-001: Módulo ingest/ implementado e validado (3/3 testes).
+- 2026-11-14 — knowledge-001: Módulo knowledge/ implementado e validado (3/3 testes).
+- 2026-11-14 — policy-001: Módulo policy/ implementado (maker-checker, determinismo). NOTA: eval() requer refatoração futura.
+- 2026-11-14 — policy-001: Refatoração de segurança concluída. eval() substituído por avaliador AST seguro. 4/4 testes passam.
+- 2026-11-14 — formalize-001: Módulo formalize/ implementado e validado (3/3 testes).
+- 2026-11-14 — reasoning-001: Módulo reasoning/ implementado e validado (3/3 testes).
+- 2026-11-14 — agents-001: Módulo agents/ implementado e validado (3/3 testes).
+- 2026-11-14 — gate-001: Validação de 5 camadas com planeamento de falhas (3/3 testes OK)
+- 2026-11-14 — explain-001: Explicações fiéis ao trace com duas vistas (3/3 testes OK)
+- 2026-11-14 — audit-001: Registo imutável com hash chain e replay (3/3 testes OK)
+- 2026-11-14 — review-001: Interface humana com maker-checker e prioridade (3/3 testes OK)
+- 2026-11-14 — monitor-001: Deteção de drift, kill switch e shadow mode (3/3 testes OK)
+- 2026-11-14 — compliance-001: Documentação regulatória e rastreabilidade (3/3 testes OK)
+- 2026-11-14 — eval-001: Sistema de avaliação contínua (golden sets, red teaming, baseline) validado (3/3 testes OK, 0 warnings)
+- 2026-11-14 — integration-001: Camada de integração com idempotência, multi-tenant e gate enforcement validada (3/3 testes OK, 0 warnings)
+- 2026-11-14 — domains-001: Pack piloto de licenciamento comercial validado (3/3 testes OK)
+- 2026-11-14 — apps-001: Interfaces para revisor, auditor, jurista e gestor validadas (3/3 testes OK, WCAG 2.1 AA)
