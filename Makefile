@@ -1,18 +1,23 @@
-.PHONY: test coverage check-coverage set-baseline clean
+.PHONY: install test test-security eval run clean lint
+
+install:
+	pip install -r requirements.txt
 
 test:
 	python -m pytest tests/ -q --tb=short
 
-coverage:
-	python -m pytest tests/ -q --cov=core --cov=gate --cov=policy --cov=audit \
-	  --cov=ingest --cov=reasoning --cov=formalize --cov=integration --cov-report=term-missing
+test-security:
+	python -m pytest tests/security/ -v
 
-check-coverage:
-	python scripts/check_coverage.py
+eval:
+	python scripts/generate_eval_report.py
 
-set-baseline:
-	python scripts/check_coverage.py --set-baseline
+run:
+	uvicorn integration.api:app --host 0.0.0.0 --port 8000 --reload
+
+lint:
+	python -m flake8 core gate policy audit
 
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} +
-	rm -rf .pytest_cache .coverage htmlcov coverage.json coverage.xml
+	find . -type f -name "*.pyc" -delete
