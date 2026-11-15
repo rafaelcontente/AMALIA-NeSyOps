@@ -1,0 +1,100 @@
+{
+  "framework": "EU AI Act",
+  "version": "2024",
+  "system_name": "AMALIA-NeSyOps",
+  "risk_classification": "High-Risk (Administrative Decision Support)",
+  "mappings": [
+    {
+      "article": "Art. 9",
+      "requirement": "Risk Management System",
+      "description": "A risk management system shall be established, implemented, documented and maintained.",
+      "evidence_tests": [
+        "tests/test_compliance.py::test_traceability_matrix_completeness",
+        "tests/review/test_incidents.py::test_report_incident"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 10",
+      "requirement": "Data and Data Governance",
+      "description": "High-risk AI systems shall be developed on the basis of training, validation and testing data sets that meet relevant quality criteria.",
+      "evidence_tests": [
+        "tests/eval/test_golden_set_v3.py::test_golden_set_v3_has_200_cases",
+        "tests/eval/test_golden_set_v3.py::test_category_evaluator_calculates_global_metrics"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 13",
+      "requirement": "Technical Documentation",
+      "description": "High-risk AI systems shall be designed and developed with transparency, enabling deployers to interpret the system's output.",
+      "evidence_tests": [
+        "tests/explain/test_explanation_validation.py::test_generator_cites_only_evaluated_rules",
+        "tests/explain/test_explanation_validation.py::test_auditor_view_contains_all_trace_metadata"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 14",
+      "requirement": "Human Oversight",
+      "description": "High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons.",
+      "evidence_tests": [
+        "tests/review/test_maker_checker.py::test_single_vote_pending",
+        "tests/review/test_maker_checker.py::test_veto_rejects_immediately",
+        "tests/gate/test_pilot_mode.py::test_pilot_mode_inactive_by_default"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 15",
+      "requirement": "Accuracy, Robustness and Cybersecurity",
+      "description": "High-risk AI systems shall be designed and developed in such a way that they achieve an appropriate level of accuracy, robustness, and cybersecurity, and perform consistently in those respects throughout their lifecycle.",
+      "evidence_tests": [
+        "tests/performance/test_gate_benchmark.py::test_gate_throughput_and_latency_valid",
+        "tests/agents/test_hallucination_checker.py::test_valid_entities_pass",
+        "tests/agents/test_ollama_adapter.py::test_circuit_breaker_starts_closed",
+        "tests/security/test_prompt_injection.py::test_detector_flags_attack"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 17",
+      "requirement": "Quality Management System",
+      "description": "A quality management system shall be established, implemented, documented and maintained.",
+      "evidence_tests": [
+        "tests/unit/test_imports.py::test_module_imports",
+        "tests/unit/test_annotations.py::test_annotations_resolve"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 19",
+      "requirement": "Conformity Assessment",
+      "description": "Providers shall draw up an EU declaration of conformity and affix the CE marking.",
+      "evidence_tests": [
+        "tests/test_compliance.py::test_compliance_package_reproducibility"
+      ],
+      "status": "evidence_ready"
+    },
+    {
+      "article": "Art. 26",
+      "requirement": "Obligations of Deployers (Human Oversight)",
+      "description": "Deployers shall ensure that natural persons assigned to exercise human oversight have the necessary competence, training and authority.",
+      "evidence_tests": [
+        "tests/review/test_appeal.py::test_submit_appeal",
+        "tests/audit/test_access_control.py::test_grant_and_check_reader_role"
+      ],
+      "status": "covered"
+    },
+    {
+      "article": "Art. 29",
+      "requirement": "Obligations of Deployers (Data Protection)",
+      "description": "Deployers shall ensure that personal data processed by the high-risk AI system is protected in accordance with GDPR.",
+      "evidence_tests": [
+        "tests/audit/test_persistence.py::test_write_and_read_single_entry",
+        "tests/audit/test_integrity.py::test_valid_chain_passes_integrity_check"
+      ],
+      "status": "covered"
+    }
+  ]
+}
