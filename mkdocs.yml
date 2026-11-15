@@ -1,0 +1,42 @@
+site_name: AMALIA-NeSyOps
+site_description: Neuro-symbolic middleware for auditable administrative decision support.
+site_url: https://rafaelcontente.github.io/AMALIA-NeSyOps/
+repo_url: https://github.com/rafaelcontente/AMALIA-NeSyOps
+repo_name: rafaelcontente/AMALIA-NeSyOps
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mermaid2
+
+nav:
+  - Home: index.md
+  - Project Narrative: PROJECT_NARRATIVE.md
+  - Threat Model: THREAT_MODEL.md
+  - Evaluation Report: EVALUATION.md
+  - Case Study: CASE_STUDY.md
+  - Operations: OPERATIONS.md
