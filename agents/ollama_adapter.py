@@ -104,7 +104,7 @@ class OllamaAdapter:
             }
     
     def _call_ollama(self, prompt: str) -> Dict[str, Any]:
-        """Chama a API do Ollama."""
+        """Chama a API do Ollama com constrained decoding (formato JSON forçado)."""
         start_time = time.time()
         
         response = requests.post(
@@ -113,6 +113,7 @@ class OllamaAdapter:
                 "model": self.model,
                 "prompt": prompt,
                 "stream": False,
+                "format": "json",  # Constrained decoding: forces valid JSON output from Ollama
             },
             timeout=self.timeout,
         )
