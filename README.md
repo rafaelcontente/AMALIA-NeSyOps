@@ -316,27 +316,27 @@ If you use AMALIA or the underlying Portuguese LLM in your research, please cite
 
 ---
 
-## 🚀 Fase 2: Produção, Conformidade e LLMOps (Concluído)
+## 🚀 Phase 2: Production, Compliance, and LLMOps (Completed)
 
-O projeto evoluiu para um estado de maturidade empresarial, adicionando:
+The project has evolved to enterprise maturity, adding:
 
-- **P7: Segurança Contínua no CI**: Jobs dedicados com Gitleaks, pip-audit e Bandit.
-- **P8: Validação Formal de Explicações**: 11 testes que provam matematicamente zero alucinações (fidelidade 100% ao trace).
-- **P9: Documentação Operacional**: `docs/OPERATIONS.md` com runbooks de deployment, rollback e limites conhecidos.
-- **P10: Golden Set Expandido**: 200+ casos semi-reais com métricas (Accuracy, F1) desagregadas por 4 domínios.
-- **P11: Testes de Performance**: Throughput validado >37.000 req/s com latência p95 < 0.05ms no núcleo determinístico.
-- **P12: Modo Piloto Controlado**: Variável `PILOT_MODE=true` que força revisão humana obrigatória e registo de incidentes.
-- **P13: Mapeamento de Conformidade (EU AI Act)**: Artefacto JSON (`compliance/eu_ai_act_mapping.json`) que liga 9 artigos críticos a testes específicos, com meta-teste anti-drift.
-- **P14: Avaliação Contínua do LLM (LLMOps)**: Script que valida o modelo real (Ollama) contra limites de alucinação e latência.
-- **P15: Relatórios de Avaliação Versionados**: Geração automática de relatórios JSON/Markdown com delta de métricas e commit hash.
+- **P7: Continuous CI Security**: Dedicated jobs with Gitleaks, pip-audit, and Bandit.
+- **P8: Formal Explanation Validation**: 11 tests mathematically proving zero hallucinations (100% trace fidelity).
+- **P9: Operational Documentation**: `docs/OPERATIONS.md` with runbooks for deployment, rollback, and known limits.
+- **P10: Expanded Golden Set**: 200+ semi-real cases with metrics (Accuracy, F1) disaggregated by 4 domains.
+- **P11: Performance & Load Testing**: Validated throughput >37,000 req/s with p95 latency <0.05ms on the deterministic core.
+- **P12: Controlled Pilot Mode**: `PILOT_MODE=true` variable forcing mandatory human review and incident logging.
+- **P13: EU AI Act Compliance Mapping**: Machine-readable JSON (`compliance/eu_ai_act_mapping.json`) linking 9 critical articles to specific tests, with an anti-drift meta-test.
+- **P14: Continuous LLM Evaluation (LLMOps)**: Script validating the real model (Ollama) against hallucination and latency limits.
+- **P15: Versioned Evaluation Reports**: Automated generation of JSON/Markdown reports with metric deltas and commit hashes.
 
-### 📊 Métricas Finais do Projeto
-- **600+ Testes Automatizados** a passar (crescimento de +177% desde o início).
-- **Cobertura de Invariantes**: 100% dos requisitos críticos mapeados e testados.
-- **Arquitetura**: Pipeline determinístico, cadeia de auditoria imutável (SQLite WAL), resiliência operacional e governança humana completa.
+## 📊 Final Project Metrics
+- **600+ Automated Tests** passing (+177% growth from the initial baseline).
+- **Invariant Coverage**: 100% of critical requirements mapped and tested.
+- **Architecture**: Deterministic pipeline, immutable audit ledger (SQLite WAL), operational resilience, and complete human governance.
 
-### 📄 Licença
-Este projeto está licenciado sob a **Apache License 2.0**. Ver ficheiro `LICENSE` para detalhes.
+### License
+This project is licensed under the **Apache License 2.0**. See the `LICENSE` file for details.
 
 ---
 
