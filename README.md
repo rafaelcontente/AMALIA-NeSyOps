@@ -337,3 +337,27 @@ O projeto evoluiu para um estado de maturidade empresarial, adicionando:
 
 ### 📄 Licença
 Este projeto está licenciado sob a **Apache License 2.0**. Ver ficheiro `LICENSE` para detalhes.
+
+---
+
+## Phase 2: Production, Compliance, and LLMOps (Completed)
+
+The project has evolved to enterprise maturity, adding:
+
+- **P7: Continuous CI Security**: Dedicated jobs with Gitleaks, pip-audit, and Bandit.
+- **P8: Formal Explanation Validation**: 11 tests mathematically proving zero hallucinations (100% trace fidelity).
+- **P9: Operational Documentation**: `docs/OPERATIONS.md` with runbooks for deployment, rollback, and known limits.
+- **P10: Expanded Golden Set**: 200+ semi-real cases with metrics (Accuracy, F1) disaggregated by 4 domains.
+- **P11: Performance & Load Testing**: Validated throughput >37,000 req/s with p95 latency <0.05ms on the deterministic core.
+- **P12: Controlled Pilot Mode**: `PILOT_MODE=true` variable forcing mandatory human review and incident logging.
+- **P13: EU AI Act Compliance Mapping**: Machine-readable JSON (`compliance/eu_ai_act_mapping.json`) linking 9 critical articles to specific tests, with an anti-drift meta-test.
+- **P14: Continuous LLM Evaluation (LLMOps)**: Script validating the real model (Ollama) against hallucination and latency limits.
+- **P15: Versioned Evaluation Reports**: Automated generation of JSON/Markdown reports with metric deltas and commit hashes.
+
+### Final Project Metrics
+- **600+ Automated Tests** passing (+177% growth from the initial baseline).
+- **Invariant Coverage**: 100% of critical requirements mapped and tested.
+- **Architecture**: Deterministic pipeline, immutable audit ledger (SQLite WAL), operational resilience, and complete human governance.
+
+### License
+This project is licensed under the **Apache License 2.0**. See the `LICENSE` file for details.
